@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Soul Compass</title>
+  
+  <link rel="stylesheet" href="styles.css">
+
+<!-- ⭐ PWA Manifest -->
+  <link rel="manifest" href="./manifest.json">
+
+ <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./service-worker.js");
+    }
+  </script>
+  
+</head>
+<body>
+  <h1>Tarot Card Reader 🔮</h1>
+  <p>Hold your question in your mind, choose a spread, and draw the cards.</p>
+
+  <div class="controls">
+    <label for="spread">Spread type:</label>
+    <select id="spread">
+      <option value="1">Single Card (Insight)</option>
+      <option value="3">Three Card (Past / Present / Future)</option>
+	<option value="10">Ten Card (Deep Analysis)</option>
+    </select>
+    <button id="drawBtn">Draw Cards</button>
+  </div>
+
+<div id="cardsContainer" class="cards"></div>
+
+<div class="workspace">
+
+    <!-- Interactive Layout Board Container -->
+    <div class="board-container">
+
+        <!-- ⭐ 1‑Card Board -->
+        <div class="one-card-board">
+            <div id="oneSlot" class="slot"></div>
+        </div>
+
+        <!-- ⭐ 3‑Card Board -->
+        <div class="three-card-board">
+            <div id="threeSlot1" class="slot"></div>
+            <div id="threeSlot2" class="slot"></div>
+            <div id="threeSlot3" class="slot"></div>
+        </div>
+
+        <!-- ⭐ 10‑Card Celtic Cross Board -->
+        <div class="celtic-cross-board">
+            <div class="slot" id="slot1"></div>
+            <div class="slot" id="slot2"></div>
+            <div class="slot" id="slot3"></div>
+            <div class="slot" id="slot4"></div>
+            <div class="slot" id="slot5"></div>
+            <div class="slot" id="slot6"></div>
+            <div class="slot" id="slot7"></div>
+            <div class="slot" id="slot8"></div>
+            <div class="slot" id="slot9"></div>
+            <div class="slot" id="slot10"></div>
+        </div>
+
+    </div> <!-- end board-container -->
+
+    <!-- ⭐ Reading Panel -->
+    <div class="reading-panel" id="readingPanel">
+        <div class="panel-placeholder">
+            Click any card to inspect its deeper positional interpretation.
+        </div>
+    </div>
+
+</div> <!-- end workspace -->
+
+<script src="script.js" defer></script>
+
+
+
+</body>
+</html>
+
+
+   

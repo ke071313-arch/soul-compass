@@ -1,0 +1,382 @@
+:root {
+            --bg: #09070f;
+            --surface: #141122;
+            --surface-hover: #1f1a35;
+            --accent: #d4af37;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: #332a54;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+      font-family: "Georgia", serif;
+      background: radial-gradient(circle at top, #2b1b3f, #050308);
+      color: #f5f5f5;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .controls {
+      margin: 20px auto;
+      padding: 12px 16px;
+      max-width: 420px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
+    }
+    select, button {
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 4px;
+      border: none;
+      font-family: inherit;
+    }
+    select {
+      background: #1b1028;
+      color: #f5f5f5;
+    }
+    button {
+      background: linear-gradient(135deg, #c19b3b, #e0b94f);
+      color: #111;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    button:hover {
+      filter: brightness(1.1);
+    }
+ /* Main Workspace: Flex layout to separate board and interpretation panel */
+        .workspace {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+            max-width: 1300px;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .workspace { flex-direction: row; align-items: flex-start; }
+        }
+
+        /* Celtic Cross Grid Blueprint Layout */
+        .board-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: auto;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .celtic-cross-board {
+            position: relative;
+            width: 620px;
+            height: 600px;
+            background: rgba(20, 17, 34, 0.4);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+	    transition: all 0.4s ease;
+	    display: none;
+        }
+.celtic-cross-board.active {
+  display: block;
+}
+
+        /* Card Slot Blueprints */
+        .slot {
+            position: absolute;
+	    overflow: hidden;
+            width: 85px;
+            height: 130px;
+            background-color: var(--surface);
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .slot:hover { 
+		border-color: var(--accent); 
+		background-color: var(--surface-hover); 
+ 		transform: scale(1.05);
+  		box-shadow: 0 0 12px var(--accent);
+}
+        .slot.active { border: 2px solid var(--accent); }
+
+        .slot-num {
+            background: rgba(0,0,0,0.6);
+            color: var(--accent);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            border: 1px solid var(--accent);
+        }
+
+        .slot-label { 
+	font-size: 9px; 
+	text-transform: uppercase; 
+	color: var(--text-muted); text-align: center; padding: 0 4px; 
+}.slot-num,
+.slot-label {
+  position: relative;
+  z-index: 2; /* ensures labels appear above the card image */
+}
+
+.slot-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  z-index: 1;
+}
+        
+        /* Card Graphic Generation State */
+        .card-drawn { background-color: #231c44 !important; border-style: solid !important; }
+        .card-drawn .slot-label { color: #fff; font-weight: bold; font-size: 10px; }
+        .card-drawn .orientation-indicator { font-size: 9px; color: var(--accent); margin-top: 2px; }
+
+        /* Unique Board Absolute Map Mapping Coordinates */
+        /* More spacious Celtic Cross layout */
+#slot1 { left: 145px; top: 205px; z-index: 2; }
+#slot2 { left: 145px; top: 205px; transform: rotate(90deg); z-index: 3; }
+
+#slot3 { left: 145px; top: 45px; }
+#slot4 { left: 145px; top: 365px; }
+
+#slot5 { left: 15px; top: 205px; }
+#slot6 { left: 275px; top: 205px; }
+
+#slot7 { left: 460px; top: 440px; }
+#slot8 { left: 460px; top: 300px; }
+#slot9 { left: 460px; top: 160px; }
+#slot10 { left: 460px; top: 20px; 
+}
+
+/* 3‑Card Spread Layout */
+.three-card-board {
+  position: relative;
+  width: 420px;
+  height: 350px;
+  display: none;
+}
+
+.three-card-board.active {
+  display: block;
+}
+
+/* Triangle positions */
+#threeSlot1 {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Card 2 — bottom left */
+#threeSlot2 {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 290px);   /* slot width (140px) + 5px */
+}
+
+/* Card 3 — bottom right */
+#threeSlot3 {
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% + 145px);     /* mirror offset */
+}
+
+/* Larger card images */
+#threeSlot1,
+#threeSlot2,
+#threeSlot3 {
+  width: 140px;   /* increase card width */
+  height: 210px;  /* increase card height */
+}
+/* Celtic Cross slots use default .slot size */
+#slot1, #slot2, #slot3, #slot4, #slot5,
+#slot6, #slot7, #slot8, #slot9, #slot10 {
+  width: 85px;
+  height: 130px;
+}
+
+/* 1‑Card Spread Board */
+.one-card-board {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  margin: 0 auto;
+  display: none;
+}
+/* Larger card for 1‑card spread */
+#oneSlot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180px;
+  height: 275px;
+  transform: translate(-50%, -50%);
+}
+        /* Dynamic Reading Panel styling */
+        .reading-panel {
+            width: 100%;
+            max-width: 450px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+        }
+/* Card image inside reading panel */
+.reading-card-image {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.reading-image {
+  width: 160px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.6);
+}
+
+        .panel-placeholder {
+            color: var(--text-muted);
+            text-align: center;
+            margin: auto 0;
+            font-style: italic;
+        }
+
+        .entry-title { color: var(--accent); font-size: 1.4rem; margin-bottom: 5px; }
+        .entry-position { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 15px; }
+        .entry-meta { display: inline-block; background: #2a224d; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; margin-bottom: 20px; }
+        .entry-body { font-size: 1rem; line-height: 1.6; color: #cbd5e1; }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      gap: 20px;
+    }
+    .card {
+      background: rgba(10, 6, 18, 0.9);
+      border: 1px solid rgba(255, 215, 0, 0.4);
+      border-radius: 12px;
+      padding: 12px;
+      width: 240px;
+      text-align: left;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUp 0.6s forwards;}
+    .card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+    .card:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    .card-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #ffd700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .position-label {
+      font-style: italic;
+      margin-bottom: 4px;
+      color: #aaa;
+    }
+    .card-image-wrapper {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .card-image {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8);
+    }
+    .keywords {
+      font-size: 0.9rem;
+      color: #e0d6ff;
+      margin-bottom: 6px;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+}
+/* Highlight the selected slot */
+.slot.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  transform: scale(1.08);
+  transition: all 0.3s ease;
+}
+
+/* Animate the reading panel when a card is viewed */
+.reading-panel.animate {
+  animation: panelFade 0.45s ease forwards;
+}
+
+@keyframes panelFade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.one-card-board,
+.three-card-board,
+.celtic-cross-board,
+#readingPanel {
+  display: none;
+}
+
+.one-card-board.active,
+.three-card-board.active,
+.celtic-cross-board.active,
+#readingPanel.active {
+  display: block; /* or grid/flex depending on your layout */
+}
+/* Make slots clickable */
+.slot {
+  pointer-events: none;
+}
+
+.slot-image {
+  pointer-events: none;
+}
