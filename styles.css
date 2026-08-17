@@ -1280,6 +1280,139 @@ body::before {
     pointer-events: none;
     z-index: 0;
 }
+/* =========================================
+   SOUL COMPASS - MOBILE FIX
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* Keep the page inside the phone */
+    body {
+        width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+        padding: 10px;
+    }
+
+    /* =====================================
+       SPREAD BUTTONS
+       ===================================== */
+
+    #spreadButtons {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        max-width: 500px !important;
+        gap: 14px !important;
+        margin: 20px auto !important;
+    }
+
+    .spread-btn {
+        display: block !important;
+        width: 100% !important;
+        min-height: 70px !important;
+
+        padding: 18px 12px !important;
+
+        font-size: 1.25rem !important;
+        line-height: 1.2 !important;
+
+        background: rgba(212, 175, 55, 0.72) !important;
+
+        color: white !important;
+
+        border-radius: 12px !important;
+
+        white-space: normal !important;
+    }
+
+    /* =====================================
+       WORKSPACE
+       ===================================== */
+
+    .workspace {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        align-items: center !important;
+
+        gap: 20px !important;
+    }
+
+    /* =====================================
+       BOARD CONTAINER
+       ===================================== */
+
+    .board-container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+
+        overflow: hidden !important;
+
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* =====================================
+       READING PANEL
+       ===================================== */
+
+    #readingPanel,
+    #readingPanel.fullscreen {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        height: auto !important;
+        max-height: none !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        padding: 20px !important;
+
+        box-sizing: border-box !important;
+    }
+
+    .reading-image {
+        width: min(160px, 70vw) !important;
+        height: auto !important;
+    }
+
+    /* =====================================
+       ONE CARD
+       ===================================== */
+
+    .one-card-board.active {
+        width: 100% !important;
+        height: 75vh !important;
+
+        display: flex !important;
+
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    /* =====================================
+       THREE CARD
+       ===================================== */
+
+    .three-card-board.active {
+        width: 100% !important;
+        height: 75vh !important;
+
+        display: flex !important;
+
+        justify-content: center !important;
+        align-items: center !important;
+
+        gap: 8px !important;
+    }
+
+}
 
 /* Keep cards and labels above the stars */
 .one-card-board > *,
