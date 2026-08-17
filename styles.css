@@ -2028,12 +2028,12 @@ body::before {
 
 }
 /* =========================================================
-   SOUL COMPASS - FINAL PHONE SIZING
+   SOUL COMPASS - FINAL SCREEN / PHONE OVERRIDES
    ========================================================= */
 
-/* ---------------------------------------------------------
-   SAME NIGHT SKY BACKGROUND ON ALL SCREENS
-   --------------------------------------------------------- */
+/* =========================================================
+   1. SAME NIGHT SKY ON EVERY SCREEN
+   ========================================================= */
 
 body,
 .fullscreen-board,
@@ -2049,28 +2049,29 @@ body,
             #080d25 70%,
             #050817 100%
         ) !important;
+
+    background-attachment: fixed !important;
 }
 
 
-/* ---------------------------------------------------------
-   SCREEN 1
-   --------------------------------------------------------- */
+/* =========================================================
+   2. SCREEN 1
+   ========================================================= */
 
-/* Make title 2x bigger */
 h1 {
     font-size: 2em !important;
 }
 
-/* Make instructions 3x bigger */
+/* Try the common instruction containers */
 .instructions,
 .instructions p,
 .instruction,
 .instruction-text {
-    font-size: 3em !important;
+    font-size: 1.5rem !important;
+    line-height: 1.5 !important;
 }
 
-/* Make ALL spread buttons the same size as the good
-   buttons you already have on Screen 1 */
+/* Keep your existing good button size */
 #spreadButtons {
     display: flex !important;
     flex-direction: column !important;
@@ -2083,129 +2084,236 @@ h1 {
     width: 100% !important;
     min-height: 80px !important;
     padding: 20px !important;
-    font-size: 1.4rem !important;
+    font-size: 1.3rem !important;
 }
 
 
-/* ---------------------------------------------------------
-   1-CARD BOARD
-   4x LARGER
-   --------------------------------------------------------- */
+/* =========================================================
+   3. START OVER / BACK BUTTONS
+   ========================================================= */
 
-.one-card-board .slot,
-#oneSlot {
-    width: 720px !important;
-    height: 1100px !important;
+.start-over-btn {
+    padding: 20px 30px !important;
+    font-size: 1.3rem !important;
+    min-height: 60px !important;
 }
 
-
-/* ---------------------------------------------------------
-   3-CARD BOARD
-   3x LARGER
-   --------------------------------------------------------- */
-
-.three-card-board .slot,
-#threeSlot1,
-#threeSlot2,
-#threeSlot3 {
-    width: 420px !important;
-    height: 630px !important;
-}
-
-
-/* ---------------------------------------------------------
-   10-CARD CELTIC CROSS
-   2x LARGER
-   --------------------------------------------------------- */
-
-.celtic-cross-board .slot {
-    width: 190px !important;
-    height: 290px !important;
-}
-
-/* Labels 2x larger */
-.celtic-cross-board .slot-label {
-    width: 145% !important;
-
-    font-size: 20px !important;
-    line-height: 1.5 !important;
-
-    padding: 10px 8px !important;
+.back-btn {
+    padding: 18px 28px !important;
+    font-size: 1.3rem !important;
     min-height: 60px !important;
 }
 
 
-/* Card numbers larger too */
-.celtic-cross-board .slot-num {
-    width: 40px !important;
-    height: 40px !important;
+/* =========================================================
+   4. ONE-CARD BOARD
+   ========================================================= */
+
+.one-card-board.active {
+    position: relative !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    display: flex !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    padding: 80px 20px 40px !important;
+
+    box-sizing: border-box !important;
+}
+
+/* Keep the card centered */
+.one-card-board.active .slot,
+#oneSlot {
+    position: relative !important;
+
+    top: auto !important;
+    left: auto !important;
+
+    transform: none !important;
+
+    width: min(70vw, 360px) !important;
+    height: min(105vw, 550px) !important;
+
+    flex-shrink: 0 !important;
+}
+
+
+/* =========================================================
+   5. THREE-CARD BOARD
+   ========================================================= */
+
+.three-card-board.active {
+    position: relative !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    display: flex !important;
+
+    justify-content: center !important;
+    align-items: center !important;
+
+    padding: 120px 15px 50px !important;
+
+    box-sizing: border-box !important;
+
+    gap: 15px !important;
+}
+
+/* Three cards */
+.three-card-board.active .slot,
+#threeSlot1,
+#threeSlot2,
+#threeSlot3 {
+    position: relative !important;
+
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    transform: none !important;
+
+    width: calc((100vw - 60px) / 3) !important;
+    height: calc(((100vw - 60px) / 3) * 1.53) !important;
+
+    max-width: 180px !important;
+    max-height: 275px !important;
+
+    flex-shrink: 0 !important;
+}
+
+
+/* =========================================================
+   6. CELTIC CROSS
+   ========================================================= */
+
+/*
+   We are NOT making the cards 2x larger here.
+   Your carefully spaced Celtic Cross needs room for
+   the labels. We enlarge it as a complete board instead.
+*/
+
+.celtic-cross-board.active {
+    position: relative !important;
+
+    width: 900px !important;
+    height: 900px !important;
+
+    margin: 0 auto !important;
+
+    flex-shrink: 0 !important;
+
+    transform-origin: center center !important;
+}
+
+
+/* Cards */
+.celtic-cross-board.active .slot {
+    width: 170px !important;
+    height: 260px !important;
+}
+
+
+/* Labels */
+.celtic-cross-board.active .slot-label {
+    width: 145% !important;
+
+    font-size: 18px !important;
+
+    line-height: 1.5 !important;
+
+    padding: 10px 8px !important;
+
+    min-height: 55px !important;
+}
+
+
+/* Card numbers */
+.celtic-cross-board.active .slot-num {
+    width: 38px !important;
+    height: 38px !important;
 
     font-size: 16px !important;
 }
 
 
-/* ---------------------------------------------------------
-   READING PANEL
-   MAKE CONTENT 2x LARGER
-   --------------------------------------------------------- */
+/* =========================================================
+   7. READING PANEL
+   ========================================================= */
 
-#readingPanel {
-    font-size: 2em !important;
+#readingPanel.fullscreen {
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    width: 100vw !important;
+    height: 100vh !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    -webkit-overflow-scrolling: touch !important;
+
+    padding: 90px 30px 120px !important;
+
+    box-sizing: border-box !important;
 }
 
+
+/* Reading card */
 #readingPanel .reading-image {
     width: 320px !important;
-    max-width: 90% !important;
+    max-width: 90vw !important;
 }
 
+
+/* Reading text */
 #readingPanel .entry-title {
-    font-size: 2.8rem !important;
+    font-size: 2.2rem !important;
 }
 
 #readingPanel .entry-position {
-    font-size: 1.8rem !important;
+    font-size: 1.5rem !important;
 }
 
 #readingPanel .entry-meta {
-    font-size: 1.5rem !important;
-    padding: 8px 20px !important;
+    font-size: 1.3rem !important;
+    padding: 8px 18px !important;
 }
 
 #readingPanel .entry-body {
-    font-size: 2rem !important;
+    font-size: 1.5rem !important;
     line-height: 1.7 !important;
 }
 
 
-/* ---------------------------------------------------------
-   READING PANEL MUST SCROLL
-   --------------------------------------------------------- */
-
-#readingPanel.fullscreen {
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-
-    -webkit-overflow-scrolling: touch;
-
-    height: 100vh !important;
-    max-height: 100vh !important;
-
-    padding-bottom: 100px !important;
-}
-
-
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
+/* =========================================================
+   8. PHONE
+   ========================================================= */
 
 @media (max-width: 600px) {
 
-    /* Screen 1 title */
-    h1 {
-        font-size: 2rem !important;
+    body {
+        padding: 10px !important;
     }
 
-    /* Instructions */
+
+    /* -------------------------
+       SCREEN 1
+       ------------------------- */
+
+    h1 {
+        font-size: 2rem !important;
+        margin-bottom: 20px !important;
+    }
+
     .instructions,
     .instructions p,
     .instruction,
@@ -2214,7 +2322,11 @@ h1 {
         line-height: 1.5 !important;
     }
 
-    /* Buttons */
+
+    /* -------------------------
+       BUTTONS
+       ------------------------- */
+
     #spreadButtons .spread-btn {
         min-height: 80px !important;
         padding: 20px !important;
@@ -2223,47 +2335,166 @@ h1 {
 
 
     /* -------------------------
-       1 CARD
+       START OVER
        ------------------------- */
 
-    .one-card-board .slot,
-    #oneSlot {
-        width: 360px !important;
-        height: 550px !important;
+    .start-over-btn {
+        top: 15px !important;
+        left: 15px !important;
+
+        padding: 18px 24px !important;
+
+        font-size: 1.2rem !important;
+
+        min-height: 58px !important;
     }
 
 
     /* -------------------------
-       3 CARD
+       BACK BUTTON
        ------------------------- */
 
-    .three-card-board .slot,
+    .back-btn {
+        top: 15px !important;
+        right: 15px !important;
+
+        padding: 18px 24px !important;
+
+        font-size: 1.2rem !important;
+
+        min-height: 58px !important;
+    }
+
+
+    /* =====================================================
+       ONE CARD
+       ===================================================== */
+
+    .one-card-board.active {
+        width: 100vw !important;
+        height: 100vh !important;
+
+        padding-top: 100px !important;
+        padding-bottom: 50px !important;
+
+        display: flex !important;
+
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .one-card-board.active .slot,
+    #oneSlot {
+        width: 300px !important;
+        height: 455px !important;
+
+        position: relative !important;
+
+        top: auto !important;
+        left: auto !important;
+
+        transform: none !important;
+    }
+
+
+    /* =====================================================
+       THREE CARD
+       ===================================================== */
+
+    .three-card-board.active {
+        width: 100vw !important;
+        height: 100vh !important;
+
+        padding-top: 110px !important;
+
+        display: flex !important;
+
+        justify-content: center !important;
+        align-items: center !important;
+
+        gap: 10px !important;
+    }
+
+    .three-card-board.active .slot,
     #threeSlot1,
     #threeSlot2,
     #threeSlot3 {
-        width: 210px !important;
-        height: 315px !important;
+
+        position: relative !important;
+
+        top: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+
+        transform: none !important;
+
+        width: calc((100vw - 50px) / 3) !important;
+
+        height: calc(((100vw - 50px) / 3) * 1.53) !important;
+
+        max-width: 150px !important;
+        max-height: 230px !important;
     }
 
 
-    /* -------------------------
-       10 CARD
-       ------------------------- */
+    /* =====================================================
+       CELTIC CROSS
+       ===================================================== */
 
-    .celtic-cross-board .slot {
-        width: 190px !important;
-        height: 290px !important;
+    .celtic-cross-board.active {
+
+        width: 900px !important;
+        height: 900px !important;
+
+        /*
+          Scale the ENTIRE Celtic Cross instead of squeezing
+          individual cards into the existing board.
+        */
+
+        transform: scale(
+            min(
+                calc((100vw - 10px) / 900),
+                calc((100vh - 30px) / 900)
+            )
+        ) !important;
+
+        transform-origin: center center !important;
     }
 
-    .celtic-cross-board .slot-label {
-        font-size: 20px !important;
+
+    .celtic-cross-board.active .slot {
+        width: 170px !important;
+        height: 260px !important;
+    }
+
+
+    .celtic-cross-board.active .slot-label {
         width: 145% !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.5 !important;
+
+        padding: 10px 8px !important;
+
+        min-height: 55px !important;
     }
 
 
-    /* -------------------------
+    /* =====================================================
        READING PANEL
-       ------------------------- */
+       ===================================================== */
+
+    #readingPanel.fullscreen {
+
+        width: 100vw !important;
+        height: 100vh !important;
+
+        padding: 90px 20px 120px !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
 
     #readingPanel .reading-image {
         width: 320px !important;
@@ -2271,15 +2502,15 @@ h1 {
     }
 
     #readingPanel .entry-title {
-        font-size: 2.2rem !important;
+        font-size: 2rem !important;
     }
 
     #readingPanel .entry-position {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important;
     }
 
     #readingPanel .entry-body {
-        font-size: 1.5rem !important;
+        font-size: 1.4rem !important;
         line-height: 1.7 !important;
     }
 }
