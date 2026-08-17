@@ -1711,7 +1711,7 @@ const tarotDeck = [
         id: 155,
         name: "King of Wands Reversed",
         arcana: "Minor",
-        suit: "Wands",
+        suit: "Wands", 
         number: 14,
         image: "./images/King of Wands Reversed.jpg",
         keywords: "Vision Fog",
@@ -1722,173 +1722,247 @@ const tarotDeck = [
 
 document.addEventListener("DOMContentLoaded", () => {
 
+ document.getElementById("startOverBtn").style.display = "none";
 
     function shuffleDeck(deck) {
-      const copy = [...deck];
-      for (let i = copy.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
-      }
-      return copy;
+        const copy = [...deck];
+        for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [copy[i], copy[j]] = [copy[j], copy[i]];
+        }
+        return copy;
     }
 
     function getPositions(spreadSize) {
-      if (spreadSize === 1) {
-        return ["Insight"];
-      }
-      if (spreadSize === 3) {
-        return ["Past", "Present", "Future"];
-      }
-      if (spreadSize === 10) {
-        return ["The Present Situtation", "What is Helping or Hindering You", "The Best You Can Do Right Now", "Something You Dont Know", "The Past That is Affecting This", "Your Next Move or What Will Happen Next", "How you see yourself or how you are feeling", "What Others See", "Hopes or Fears", "The Final Outcome"];
-      }
-      return Array(spreadSize).fill("Card");
+        if (spreadSize === 1) return ["Insight"];
+        if (spreadSize === 3) return ["Past", "Present", "Future"];
+        if (spreadSize === 10) {
+            return [
+                "The Present Situtation",
+                "What is Helping or Hindering You",
+                "The Best You Can Do Right Now",
+                "Something You Dont Know",
+                "The Past That is Affecting This",
+                "Your Next Move or What Will Happen Next",
+                "How you see yourself or how you are feeling",
+                "What Others See",
+                "Hopes or Fears",
+                "The Final Outcome"
+            ];
+        }
+        return Array(spreadSize).fill("Card");
     }
 
-   function drawCards(spreadSize) {
-  const shuffled = shuffleDeck(tarotDeck);
-  const unique = [];
-  const seen = new Set();
+    function drawCards(spreadSize) {
+        const shuffled = shuffleDeck(tarotDeck);
+        const unique = [];
+        const seen = new Set();
 
-  for (const card of shuffled) {
-    if (!seen.has(card.name)) {
-      unique.push(card);
-      seen.add(card.name);
+        for (const card of shuffled) {
+            if (!seen.has(card.name)) {
+                unique.push(card);
+                seen.add(card.name);
+            }
+            if (unique.length === spreadSize) break;
+        }
+
+        return unique;
     }
-    if (unique.length === spreadSize) break;
-  }
 
-  return unique;
-}
+    function renderCards(cardsArray, positions) {
+        const container = document.getElementById('cardsContainer');
 
- function renderCards(cardsArray, positions) {
-  const container = document.getElementById('cardsContainer');
+        const oneBoard = document.querySelector(".one-card-board");
+        const threeBoard = document.querySelector(".three-card-board");
+        const tenBoard = document.querySelector(".celtic-cross-board");
+        const panel = document.getElementById("readingPanel");
 
-  const oneBoard = document.querySelector(".one-card-board");
-  const threeBoard = document.querySelector(".three-card-board");
-  const tenBoard = document.querySelector(".celtic-cross-board");
-  const panel = document.getElementById("readingPanel");
+        oneBoard.classList.remove("active");
+        threeBoard.classList.remove("active");
+        tenBoard.classList.remove("active");
+        panel.classList.remove("active");
 
-  // Hide everything first
-  oneBoard.classList.remove("active");
-  threeBoard.classList.remove("active");
-  tenBoard.classList.remove("active");
-  panel.classList.remove("active");
+panel.innerHTML = `
+    <div class="panel-placeholder">
+        Click any card to inspect its deeper positional interpretation.
+    </div>
+`;
+  
+      container.innerHTML = "";
 
-  container.innerHTML = "";
+        if (cardsArray.length === 1) {
+            oneBoard.classList.add("active");
+            panel.classList.add("active");
 
-  // ⭐ 1-card spread
-  if (cardsArray.length === 1) {
-    oneBoard.classList.add("active");
-    panel.classList.add("active");
+            const slot = document.getElementById("oneSlot");
+            slot.innerHTML = `
+                <img src="${revealedCards[0] ? cardsArray[0].image : "images/card-back.jpg"}" class="slot-image">
+                <div class="slot-num">1</div>
+                <div class="slot-label">${positions[0]}</div>
+            `;
+            slot.style.pointerEvents = "auto";
+            slot.setAttribute("onclick", `viewCard(0)`);
+            return;
+        }
 
-    const slot = document.getElementById("oneSlot");
-    slot.innerHTML = `
-      <img src="${cardsArray[0].image}" class="slot-image">
-      <div class="slot-num">1</div>
-      <div class="slot-label">${positions[0]}</div>
-    `;
-	slot.style.pointerEvents = "auto";
-    slot.setAttribute("onclick", `viewCard(0)`);
+        if (cardsArray.length === 3) {
+            threeBoard.classList.add("active");
+            panel.classList.add("active");
 
-    return;
-  }
+            cardsArray.forEach((card, index) => {
+                const slot = document.getElementById(`threeSlot${index + 1}`);
+                slot.innerHTML = `
+                    <img src="${revealedCards[index] ? cardsArray[index].image : "images/card-back.jpg"}" class="slot-image">
+                    <div class="slot-num">${index + 1}</div>
+                    <div class="slot-label">${positions[index]}</div>
+                `;
+                slot.style.pointerEvents = "auto";
+                slot.setAttribute("onclick", `viewCard(${index})`);
+            });
+            return;
+        }
 
-  // ⭐ 3-card spread
-  if (cardsArray.length === 3) {
-    threeBoard.classList.add("active");
-    panel.classList.add("active");
+        if (cardsArray.length === 10) {
+            tenBoard.classList.add("active");
+            panel.classList.add("active");
 
-    cardsArray.forEach((card, index) => {
-      const slot = document.getElementById(`threeSlot${index + 1}`);
-      slot.innerHTML = `
-        <img src="${card.image}" class="slot-image">
-        <div class="slot-num">${index + 1}</div>
-        <div class="slot-label">${positions[index]}</div>
-      `;
-	slot.style.pointerEvents = "auto";
-      slot.setAttribute("onclick", `viewCard(${index})`);
+            cardsArray.forEach((card, index) => {
+                const slot = document.getElementById(`slot${index + 1}`);
+                slot.innerHTML = `
+                    <img src="${revealedCards[index] ? cardsArray[index].image : "images/card-back.jpg"}" class="slot-image">
+                    <div class="slot-num">${index + 1}</div>
+                    <div class="slot-label">${positions[index]}</div>
+                `;
+                slot.style.pointerEvents = "auto";
+                slot.setAttribute("onclick", `viewCard(${index})`);
+            });
+            return;
+        }
+    }
+
+    // ⭐ MUST BE INSIDE DOMContentLoaded
+    window.viewCard = function(index) {
+        const card = lastDrawnCards[index];
+        const panel = document.getElementById("readingPanel");
+	
+        if (!card) return;
+revealedCards[index] = true;
+
+ document.querySelector(".one-card-board").classList.remove("active");
+    document.querySelector(".three-card-board").classList.remove("active");
+    document.querySelector(".celtic-cross-board").classList.remove("active");
+
+        panel.classList.remove("animate");
+        void panel.offsetWidth;
+
+        document.querySelector(".board-container").classList.remove("fullscreen-board");
+        panel.classList.add("fullscreen");
+        panel.classList.add("active");
+
+        panel.innerHTML = `
+            <div class="back-btn" onclick="exitReading()">⬅ Back</div>
+
+            <div class="reading-card-image">
+                <img src="${card.image}" alt="${card.name}" class="reading-image">
+            </div>
+
+            <div class="entry-title">${card.name}</div>
+            <div class="entry-position">${lastPositions[index]}</div>
+            <div class="entry-meta">${card.arcana} Arcana — ${card.suit || "No Suit"}</div>
+
+            <div class="entry-body">
+                <strong>Keywords:</strong> ${card.keywords}<br><br>
+                ${card.meaning}
+            </div>
+        `;
+    };
+
+    let lastDrawnCards = [];
+    let lastPositions = [];
+    let revealedCards = []; 
+
+    document.querySelectorAll('.spread-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+
+            document.querySelectorAll('.spread-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const spread = btn.dataset.spread;
+            let spreadSize = spread === "three" ? 3 : spread === "ten" ? 10 : 1;
+
+            const positions = getPositions(spreadSize);
+            const cards = drawCards(spreadSize);
+
+            lastDrawnCards = cards;
+            lastPositions = positions;
+	    revealedCards = [];
+
+            document.querySelector(".controls").classList.add("hidden");
+            document.querySelector(".board-container").classList.add("fullscreen-board");
+
+	    document.getElementById("startOverBtn").style.display = "block";
+
+            renderCards(cards, positions);
+        });
     });
 
-    return;
-  }
+    window.exitSpread = function() {
+        document.querySelector(".controls").classList.remove("hidden");
+        document.querySelector(".board-container").classList.remove("fullscreen-board");
+        document.getElementById("readingPanel").classList.remove("fullscreen");
+    };
 
-  // ⭐ 10-card spread
-  if (cardsArray.length === 10) {
-    tenBoard.classList.add("active");
-    panel.classList.add("active");
+window.exitReading = function() {
+    console.log("BACK BUTTON FIRED");
 
-    cardsArray.forEach((card, index) => {
-      const slot = document.getElementById(`slot${index + 1}`);
-      slot.innerHTML = `
-        <img src="${card.image}" class="slot-image">
-        <div class="slot-num">${index + 1}</div>
-        <div class="slot-label">${positions[index]}</div>
-      `;
-	slot.style.pointerEvents = "auto";
-      slot.setAttribute("onclick", `viewCard(${index})`);
-    });
+    const panel = document.getElementById("readingPanel");
 
-    return;
-  }
-}
+    // Hide the reading panel
+    panel.classList.remove("fullscreen");
+    panel.classList.remove("active");
 
+    // Restore the spread container
+    document.querySelector(".board-container").classList.add("fullscreen-board");
 
-// ⭐ OUTSIDE the click handler function 
+    // Show Start Over
+    document.getElementById("startOverBtn").style.display = "block";
 
-window.viewCard = function(index) {
-  const card = lastDrawnCards[index];
-  const panel = document.getElementById("readingPanel");
-
-  if (!card) return;
-
-  panel.classList.remove("animate");
-  void panel.offsetWidth;
-  panel.classList.add("animate");
-
-  document.querySelectorAll(".slot").forEach(slot => slot.classList.remove("selected"));
-    const spreadSize = lastDrawnCards.length;
-
-  let selectedSlot = null;
-
-  if (spreadSize === 1) {
-    selectedSlot = document.getElementById("oneSlot");
-  } else if (spreadSize === 3) {
-    selectedSlot = document.getElementById(`threeSlot${index + 1}`);
-  } else if (spreadSize === 10) {
-    selectedSlot = document.getElementById(`slot${index + 1}`);
-  }
-
-  if (selectedSlot) selectedSlot.classList.add("selected");
-
-  // ⭐ Update reading panel
-
-  panel.innerHTML = `
-     <div class="reading-card-image">
-        <img src="${card.image}" alt="${card.name}" class="reading-image">
-    </div>
-    <div class="entry-title">${card.name}</div>
-    <div class="entry-position">${lastPositions[index]}</div>
-    <div class="entry-meta">${card.arcana} Arcana — ${card.suit || "No Suit"}</div>
-    <div class="entry-body">
-      <strong>Keywords:</strong> ${card.keywords}<br><br>
-      ${card.meaning}
-    </div>
-  `;
+    // Re-render the ORIGINAL spread
+    // This will keep already-read cards revealed
+    // and keep unread cards face-down.
+    renderCards(lastDrawnCards, lastPositions);
 };
+document.getElementById("startOverBtn").addEventListener("click", function() {
 
-let lastDrawnCards = [];
-let lastPositions = [];
+    // Hide Start Over
+    document.getElementById("startOverBtn").style.display = "none";
 
-document.getElementById("drawBtn").addEventListener("click", () => {
-  const spreadSize = parseInt(document.getElementById("spread").value);
-  const positions = getPositions(spreadSize);
-  const cards = drawCards(spreadSize);
+    // Clear the current spread
+    lastDrawnCards = [];
+    lastPositions = [];
+    revealedCards = [];
 
-  lastDrawnCards = cards;
-  lastPositions = positions;
+    // Hide all spread boards
+    document.querySelector(".one-card-board").classList.remove("active");
+    document.querySelector(".three-card-board").classList.remove("active");
+    document.querySelector(".celtic-cross-board").classList.remove("active");
 
-  renderCards(cards, positions);
+    // Hide reading panel
+    const panel = document.getElementById("readingPanel");
+    panel.classList.remove("fullscreen");
+    panel.classList.remove("active");
+
+    // Remove full-screen spread mode
+    document.querySelector(".board-container").classList.remove("fullscreen-board");
+
+    // Show spread selection buttons again
+    document.querySelector(".controls").classList.remove("hidden");
+
+    // Remove selected button styling
+    document.querySelectorAll(".spread-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
 });
 
-});
+}); // END DOMContentLoaded

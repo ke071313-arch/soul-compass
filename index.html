@@ -8,11 +8,7 @@
 
 <!-- ⭐ PWA Manifest -->
   <link rel="manifest" href="./manifest.json">
-	
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<link rel="apple-touch-icon" href="./images/soulcompassicon.png">
-	
+
  <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./service-worker.js");
@@ -26,19 +22,21 @@
 
   <div class="controls">
     <label for="spread">Spread type:</label>
-    <select id="spread">
-      <option value="1">Single Card (Insight)</option>
-      <option value="3">Three Card (Past / Present / Future)</option>
-	<option value="10">Ten Card (Deep Analysis)</option>
-    </select>
-    <button id="drawBtn">Draw Cards</button>
-  </div>
+    <div id="spreadButtons">
+  <button class="spread-btn" data-spread="one">1‑Card</button>
+  <button class="spread-btn" data-spread="three">3‑Card</button>
+  <button class="spread-btn" data-spread="ten">10‑Card</button>
+</div>
+      </div>
 
 <div id="cardsContainer" class="cards"></div>
 
 <div class="workspace">
 
-    <!-- Interactive Layout Board Container -->
+<button id="startOverBtn" class="start-over-btn">
+    ↻ Start Over
+</button>
+
     <div class="board-container">
 
         <!-- ⭐ 1‑Card Board -->
@@ -68,6 +66,7 @@
         </div>
 
     </div> <!-- end board-container -->
+</div> <!-- end workspace -->
 
     <!-- ⭐ Reading Panel -->
     <div class="reading-panel" id="readingPanel">
@@ -76,11 +75,7 @@
         </div>
     </div>
 
-</div> <!-- end workspace -->
-
 <script src="script.js" defer></script>
-
-
 
 </body>
 </html>
