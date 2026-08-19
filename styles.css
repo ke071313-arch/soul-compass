@@ -2838,7 +2838,7 @@ h1 {
 .celtic-cross-board .slot-label {
     width: 155% !important;
 
-    padding: 11px 8px !important;
+    padding: 12px 9px !important;
 
     font-size: 10px !important;
     line-height: 1.6 !important;
@@ -2853,7 +2853,7 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
 
-    top: calc(100% + 14px);
+    top: calc(100% + 17px);
 }
 /* CARD NUMBERS */
 .celtic-cross-board .slot-num {
