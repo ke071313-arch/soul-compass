@@ -430,7 +430,7 @@ min-height: 100vh;
 
 #slot1 {
     left: 165px;
-    top: 260px;        /* 10px lower */
+    top: 265px;        /* 10px lower */
     z-index: 2;
 }
 
@@ -443,12 +443,12 @@ min-height: 100vh;
 
 #slot3 {
     left: 165px;
-    top: 45px;         /* 10px higher */
+    top: 30px;         /* 10px higher */
 }
 
 #slot4 {
     left: 165px;
-    top: 455px;        /* 10px lower */
+    top: 500px;        /* 10px lower */
 }
 
 /* Left card - slightly farther left */
