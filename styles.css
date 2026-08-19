@@ -2751,3 +2751,154 @@ h1 {
         top: calc(100% + 12px) !important;
     }
 }
+/* =========================================================
+   FINAL 10-CARD CELTIC CROSS LAYOUT
+   ========================================================= */
+
+.celtic-cross-board.active {
+    position: relative !important;
+    width: 900px !important;
+    height: 1000px !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    flex-shrink: 0;
+    transform: none !important;
+    box-sizing: border-box;
+}
+
+/* Larger cards */
+.celtic-cross-board .slot {
+    width: 170px !important;
+    height: 260px !important;
+    overflow: visible !important;
+}
+
+/* CARD 1 - CENTER */
+.celtic-cross-board #slot1 {
+    left: 250px !important;
+    top: 370px !important;
+}
+
+/* CARD 2 - CROSSING */
+.celtic-cross-board #slot2 {
+    left: 250px !important;
+    top: 370px !important;
+    transform: rotate(90deg) !important;
+}
+
+/* CARD 3 - ABOVE */
+.celtic-cross-board #slot3 {
+    left: 250px !important;
+    top: 60px !important;
+}
+
+/* CARD 4 - BELOW */
+.celtic-cross-board #slot4 {
+    left: 250px !important;
+    top: 680px !important;
+}
+
+/* CARD 5 - LEFT */
+.celtic-cross-board #slot5 {
+    left: 25px !important;
+    top: 370px !important;
+}
+
+/* CARD 6 - RIGHT */
+.celtic-cross-board #slot6 {
+    left: 465px !important;
+    top: 370px !important;
+}
+
+/* CARD 10 - TOP OF STAFF */
+.celtic-cross-board #slot10 {
+    left: 700px !important;
+    top: 10px !important;
+}
+
+/* CARD 9 */
+.celtic-cross-board #slot9 {
+    left: 700px !important;
+    top: 270px !important;
+}
+
+/* CARD 8 */
+.celtic-cross-board #slot8 {
+    left: 700px !important;
+    top: 530px !important;
+}
+
+/* CARD 7 - BOTTOM OF STAFF */
+.celtic-cross-board #slot7 {
+    left: 700px !important;
+    top: 790px !important;
+}
+
+/* POSITION LABELS */
+.celtic-cross-board .slot-label {
+    width: 145% !important;
+    min-height: 55px !important;
+    padding: 10px 8px !important;
+    margin-top: 8px !important;
+
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+
+    background: rgba(70, 45, 100, 0.95) !important;
+    color: white !important;
+
+    border-radius: 8px !important;
+
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: calc(100% + 8px) !important;
+
+    z-index: 10 !important;
+}
+
+/* CARD NUMBERS */
+.celtic-cross-board .slot-num {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 14px !important;
+    top: 6px !important;
+    left: 6px !important;
+    z-index: 20 !important;
+}
+
+/* CARD IMAGES */
+.celtic-cross-board .slot-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+}
+
+
+/* PHONE */
+@media (max-width: 600px) {
+
+    .celtic-cross-board.active {
+        width: 900px !important;
+        height: 1000px !important;
+
+        transform: scale(
+            min(
+                calc((100vw - 20px) / 900),
+                calc((100vh - 40px) / 1000)
+            )
+        ) !important;
+
+        transform-origin: center center !important;
+    }
+
+    .celtic-cross-board .slot {
+        width: 170px !important;
+        height: 260px !important;
+    }
+
+    .celtic-cross-board .slot-label {
+        font-size: 13px !important;
+        min-height: 55px !important;
+        padding: 10px 8px !important;
+    }
+}
