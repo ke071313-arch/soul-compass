@@ -2645,3 +2645,109 @@ h1 {
         line-height: 1.7 !important;
     }
 }
+/* =========================================================
+   FINAL CELTIC CROSS PHONE OVERRIDE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .board-container.fullscreen-board {
+        overflow: hidden !important;
+    }
+
+    .celtic-cross-board.active {
+
+        width: 900px !important;
+        height: 900px !important;
+
+        position: relative !important;
+
+        margin: 0 !important;
+
+        transform: scale(0.42) !important;
+        transform-origin: center center !important;
+    }
+
+
+    /* CENTER CROSS */
+
+    .celtic-cross-board.active #slot1 {
+        left: 270px !important;
+        top: 330px !important;
+    }
+
+    .celtic-cross-board.active #slot2 {
+        left: 270px !important;
+        top: 330px !important;
+
+        transform: rotate(90deg) !important;
+    }
+
+    .celtic-cross-board.active #slot3 {
+        left: 270px !important;
+        top: 60px !important;
+    }
+
+    .celtic-cross-board.active #slot4 {
+        left: 270px !important;
+        top: 600px !important;
+    }
+
+    .celtic-cross-board.active #slot5 {
+        left: 10px !important;
+        top: 330px !important;
+    }
+
+    .celtic-cross-board.active #slot6 {
+        left: 530px !important;
+        top: 330px !important;
+    }
+
+
+    /* RIGHT COLUMN */
+
+    .celtic-cross-board.active #slot10 {
+        left: 700px !important;
+        top: 40px !important;
+    }
+
+    .celtic-cross-board.active #slot9 {
+        left: 700px !important;
+        top: 280px !important;
+    }
+
+    .celtic-cross-board.active #slot8 {
+        left: 700px !important;
+        top: 520px !important;
+    }
+
+    .celtic-cross-board.active #slot7 {
+        left: 700px !important;
+        top: 760px !important;
+    }
+
+
+    /* CARD SIZE */
+
+    .celtic-cross-board.active .slot {
+        width: 170px !important;
+        height: 260px !important;
+    }
+
+
+    /* LABELS */
+
+    .celtic-cross-board.active .slot-label {
+        width: 145% !important;
+
+        font-size: 18px !important;
+
+        line-height: 1.5 !important;
+
+        padding: 10px 8px !important;
+
+        min-height: 55px !important;
+
+        top: calc(100% + 12px) !important;
+    }
+}
