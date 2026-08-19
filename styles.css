@@ -1164,16 +1164,41 @@ min-height: 100vh;
         align-items: center;
     }
 
-    /* 3-card */
-    .three-card-board.active {
-        width: 100%;
-        height: 80vh;
+    /* =========================================
+   PHONE - 3 CARD TRIANGLE
+   ========================================= */
 
-        display: flex;
+.three-card-board.active {
+    position: relative;
 
-        justify-content: center;
-        align-items: center;
-    }
+    width: 100%;
+    height: 80vh;
+
+    display: block;
+
+    margin: 0 auto;
+}
+
+/* Card 1 - TOP */
+#threeSlot1 {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Card 2 - BOTTOM LEFT */
+#threeSlot2 {
+    position: absolute;
+    bottom: 40px;
+    left: calc(50% - 190px);
+}
+
+/* Card 3 - BOTTOM RIGHT */
+#threeSlot3 {
+    position: absolute;
+    bottom: 40px;
+    left: calc(50% + 50px);
 }
 /* =========================================
    SUBTLE NIGHT SKY EFFECT
