@@ -2437,36 +2437,167 @@ h1 {
     }
 
 
-    /* =====================================================
-       CELTIC CROSS
-       ===================================================== */
+    /* =========================================================
+   CELTIC CROSS - KEEP THE SPACING, ENLARGE EVERYTHING
+   ========================================================= */
+
+.celtic-cross-board.active {
+    position: relative !important;
+
+    width: 1100px !important;
+    height: 1100px !important;
+
+    margin: 0 auto !important;
+
+    flex-shrink: 0 !important;
+
+    transform-origin: center center !important;
+}
+
+
+/* =========================================================
+   LARGER CELTIC CROSS CARDS
+   ========================================================= */
+
+.celtic-cross-board.active .slot {
+    width: 170px !important;
+    height: 260px !important;
+}
+
+
+/* =========================================================
+   CELTIC CROSS POSITIONS
+   ========================================================= */
+
+/* Center */
+#slot1 {
+    left: 300px !important;
+    top: 390px !important;
+    z-index: 2;
+}
+
+/* Crossing card */
+#slot2 {
+    left: 300px !important;
+    top: 390px !important;
+    transform: rotate(90deg) !important;
+    z-index: 3;
+}
+
+/* Above */
+#slot3 {
+    left: 300px !important;
+    top: 100px !important;
+}
+
+/* Below */
+#slot4 {
+    left: 300px !important;
+    top: 680px !important;
+}
+
+/* Left */
+#slot5 {
+    left: 60px !important;
+    top: 390px !important;
+}
+
+/* Right */
+#slot6 {
+    left: 540px !important;
+    top: 390px !important;
+}
+
+
+/* =========================================================
+   RIGHT-HAND STAFF
+   ========================================================= */
+
+#slot7 {
+    left: 800px !important;
+    top: 850px !important;
+}
+
+#slot8 {
+    left: 800px !important;
+    top: 600px !important;
+}
+
+#slot9 {
+    left: 800px !important;
+    top: 350px !important;
+}
+
+#slot10 {
+    left: 800px !important;
+    top: 100px !important;
+}
+
+
+/* =========================================================
+   POSITION LABELS
+   ========================================================= */
+
+.celtic-cross-board.active .slot-label {
+    width: 145% !important;
+
+    font-size: 18px !important;
+
+    line-height: 1.5 !important;
+
+    padding: 10px 8px !important;
+
+    min-height: 55px !important;
+
+    background: rgba(70, 45, 100, 0.95) !important;
+
+    color: white !important;
+
+    border-radius: 7px !important;
+
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    top: calc(100% + 12px) !important;
+}
+
+
+/* Card numbers */
+.celtic-cross-board.active .slot-num {
+    width: 38px !important;
+    height: 38px !important;
+
+    font-size: 16px !important;
+}
+
+
+/* =========================================================
+   PHONE - SCALE THE WHOLE CROSS
+   ========================================================= */
+
+@media (max-width: 600px) {
 
     .celtic-cross-board.active {
 
-        width: 900px !important;
-        height: 900px !important;
-
-        /*
-          Scale the ENTIRE Celtic Cross instead of squeezing
-          individual cards into the existing board.
-        */
+        width: 1100px !important;
+        height: 1100px !important;
 
         transform: scale(
             min(
-                calc((100vw - 10px) / 900),
-                calc((100vh - 30px) / 900)
+                calc((100vw - 10px) / 1100),
+                calc((100vh - 30px) / 1100)
             )
         ) !important;
 
         transform-origin: center center !important;
-    }
 
+        margin: 0 auto !important;
+    }
 
     .celtic-cross-board.active .slot {
         width: 170px !important;
         height: 260px !important;
     }
-
 
     .celtic-cross-board.active .slot-label {
         width: 145% !important;
@@ -2479,7 +2610,7 @@ h1 {
 
         min-height: 55px !important;
     }
-
+}
 
     /* =====================================================
        READING PANEL
