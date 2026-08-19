@@ -1108,8 +1108,8 @@ min-height: 100vh;
     .celtic-cross-board.active {
     position: relative;
 
-    width: 680px;
-    height: 680px;
+    width: 700px;
+    height: 700px;
 
     flex-shrink: 0;
 
