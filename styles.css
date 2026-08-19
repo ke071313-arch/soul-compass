@@ -2902,3 +2902,189 @@ h1 {
         padding: 10px 8px !important;
     }
 }
+/* =========================================================
+   SOUL COMPASS - FINAL 10 CARD PHONE LAYOUT
+   THIS OVERRIDES ALL PREVIOUS CELTIC CROSS RULES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* The board itself */
+    .board-container.fullscreen-board {
+        width: 100vw !important;
+        height: 100vh !important;
+        overflow: hidden !important;
+
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        padding: 0 !important;
+    }
+
+    /* =====================================================
+       CELTIC CROSS BOARD
+       ===================================================== */
+
+    .celtic-cross-board.active {
+        position: relative !important;
+
+        width: 900px !important;
+        height: 1000px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        flex-shrink: 0 !important;
+
+        transform: scale(0.42) !important;
+        transform-origin: center center !important;
+
+        display: block !important;
+    }
+
+    /* =====================================================
+       ALL 10 CARDS
+       ===================================================== */
+
+    .celtic-cross-board.active .slot {
+        position: absolute !important;
+
+        width: 170px !important;
+        height: 260px !important;
+
+        overflow: visible !important;
+    }
+
+    /* =====================================================
+       CENTER CROSS
+       ===================================================== */
+
+    /* Card 1 - Present Situation */
+    .celtic-cross-board.active #slot1 {
+        left: 250px !important;
+        top: 370px !important;
+        z-index: 2 !important;
+    }
+
+    /* Card 2 - Crossing card */
+    .celtic-cross-board.active #slot2 {
+        left: 250px !important;
+        top: 370px !important;
+
+        transform: rotate(90deg) !important;
+
+        z-index: 3 !important;
+    }
+
+    /* Card 3 - Above */
+    .celtic-cross-board.active #slot3 {
+        left: 250px !important;
+        top: 60px !important;
+    }
+
+    /* Card 4 - Below */
+    .celtic-cross-board.active #slot4 {
+        left: 250px !important;
+        top: 680px !important;
+    }
+
+    /* Card 5 - Left */
+    .celtic-cross-board.active #slot5 {
+        left: 25px !important;
+        top: 370px !important;
+    }
+
+    /* Card 6 - Right */
+    .celtic-cross-board.active #slot6 {
+        left: 465px !important;
+        top: 370px !important;
+    }
+
+    /* =====================================================
+       RIGHT-HAND STAFF
+       ===================================================== */
+
+    /* Card 10 - Top */
+    .celtic-cross-board.active #slot10 {
+        left: 700px !important;
+        top: 10px !important;
+    }
+
+    /* Card 9 */
+    .celtic-cross-board.active #slot9 {
+        left: 700px !important;
+        top: 270px !important;
+    }
+
+    /* Card 8 */
+    .celtic-cross-board.active #slot8 {
+        left: 700px !important;
+        top: 530px !important;
+    }
+
+    /* Card 7 - Bottom */
+    .celtic-cross-board.active #slot7 {
+        left: 700px !important;
+        top: 790px !important;
+    }
+
+    /* =====================================================
+       POSITION LABELS
+       ===================================================== */
+
+    .celtic-cross-board.active .slot-label {
+        width: 145% !important;
+
+        min-height: 55px !important;
+
+        padding: 10px 8px !important;
+
+        margin-top: 8px !important;
+
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+
+        background: rgba(70, 45, 100, 0.95) !important;
+
+        color: white !important;
+
+        border-radius: 8px !important;
+
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        top: calc(100% + 8px) !important;
+
+        z-index: 10 !important;
+    }
+
+    /* =====================================================
+       CARD NUMBERS
+       ===================================================== */
+
+    .celtic-cross-board.active .slot-num {
+        width: 32px !important;
+        height: 32px !important;
+
+        font-size: 14px !important;
+
+        top: 6px !important;
+        left: 6px !important;
+
+        z-index: 20 !important;
+    }
+
+    /* =====================================================
+       CARD IMAGES
+       ===================================================== */
+
+    .celtic-cross-board.active .slot-image {
+        width: 100% !important;
+        height: 100% !important;
+
+        object-fit: contain !important;
+
+        z-index: 1 !important;
+    }
+}
