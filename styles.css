@@ -465,23 +465,24 @@ min-height: 100vh;
 /* Right-side staff - more vertical spacing */
 #slot7 {
     left: 510px;
-    top: 575px;
+    top: 600px;
 }
 
 #slot8 {
     left: 510px;
-    top: 385px;
+    top: 400px;
 }
 
 #slot9 {
     left: 510px;
-    top: 195px;
+    top: 200px;
 }
 
 #slot10 {
     left: 510px;
-    top: 5px;
+    top: 0px;
 }
+
 /* 3‑Card Spread Layout */
 .three-card-board {
   position: relative;
