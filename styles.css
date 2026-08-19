@@ -2836,26 +2836,25 @@ h1 {
 
 /* POSITION LABELS */
 .celtic-cross-board .slot-label {
-    width: 145% !important;
-    min-height: 55px !important;
-    padding: 10px 8px !important;
-    margin-top: 8px !important;
+    width: 155% !important;
 
-    font-size: 13px !important;
-    line-height: 1.45 !important;
+    padding: 11px 8px !important;
 
-    background: rgba(70, 45, 100, 0.95) !important;
-    color: white !important;
+    font-size: 10px !important;
+    line-height: 1.6 !important;
 
-    border-radius: 8px !important;
+    min-height: 48px;
 
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    top: calc(100% + 8px) !important;
+    background: rgba(70, 45, 100, 0.95);
+    color: white;
 
-    z-index: 10 !important;
+    border-radius: 7px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    top: calc(100% + 14px);
 }
-
 /* CARD NUMBERS */
 .celtic-cross-board .slot-num {
     width: 32px !important;
