@@ -3166,3 +3166,46 @@ h1 {
         line-height: 1.5 !important;
     }
 }
+/* =========================================
+   FINAL PHONE OVERRIDE
+   ========================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* 1-CARD */
+    .one-card-board.active {
+        width: 100vw !important;
+        height: 100vh !important;
+        transform: none !important;
+    }
+
+    .one-card-board.active .slot {
+        width: 260px !important;
+        height: 390px !important;
+    }
+
+
+    /* 3-CARD */
+    .three-card-board.active {
+        width: 100vw !important;
+        height: 100vh !important;
+        transform: none !important;
+    }
+
+    .three-card-board.active .slot {
+        width: 210px !important;
+        height: 315px !important;
+    }
+
+
+    /* 10-CARD */
+    .celtic-cross-board.active {
+        transform-origin: center center !important;
+    }
+
+    .celtic-cross-board.active .slot {
+        width: 110px !important;
+        height: 168px !important;
+    }
+
+}
