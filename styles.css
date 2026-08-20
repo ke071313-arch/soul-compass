@@ -3458,3 +3458,71 @@ h1 {
     }
 
 }
+/* =========================================
+   FINAL PHONE CARD SIZING
+   DO NOT CHANGE TRIANGLE POSITIONS
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* -------------------------
+       1-CARD
+       ------------------------- */
+    .one-card-board.active {
+        width: 100vw !important;
+        height: 100vh !important;
+    }
+
+    .one-card-board .slot {
+        width: 220px !important;
+        height: 335px !important;
+    }
+
+
+    /* -------------------------
+       3-CARD
+       Keep triangle positions,
+       make cards large again
+       ------------------------- */
+    .three-card-board.active {
+        width: 100vw !important;
+        height: 100vh !important;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .three-card-board .slot {
+        width: 180px !important;
+        height: 270px !important;
+    }
+
+    #threeSlot1,
+    #threeSlot2,
+    #threeSlot3 {
+        width: 180px !important;
+        height: 270px !important;
+    }
+
+
+    /* -------------------------
+       10-CARD CELTIC CROSS
+       ------------------------- */
+    .celtic-cross-board.active {
+        width: 680px !important;
+        height: 680px !important;
+    }
+
+    .celtic-cross-board .slot {
+        width: 95px !important;
+        height: 145px !important;
+    }
+
+    .celtic-cross-board .slot-label {
+        width: 145% !important;
+        font-size: 10px !important;
+        padding: 9px 7px !important;
+        line-height: 1.6 !important;
+    }
+}
