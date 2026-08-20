@@ -3209,3 +3209,252 @@ h1 {
     }
 
 }
+/* =========================================
+   SOUL COMPASS - FINAL PHONE CARD SIZING
+   PUT THIS AT THE VERY BOTTOM OF styles.css
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* =====================================
+       1-CARD - BIGGER
+       ===================================== */
+
+    .one-card-board.active {
+        width: 100vw !important;
+        height: 82vh !important;
+
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        padding: 10px !important;
+    }
+
+    #oneSlot {
+        width: 75vw !important;
+        height: 70vh !important;
+
+        max-width: 360px !important;
+        max-height: 540px !important;
+
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+    }
+
+
+    /* =====================================
+       3-CARD - KEEP TRIANGLE + MAKE BIGGER
+       ===================================== */
+
+    .three-card-board.active {
+        position: relative !important;
+
+        width: 100vw !important;
+        height: 82vh !important;
+
+        display: block !important;
+
+        padding: 0 !important;
+    }
+
+    /* TOP CARD */
+
+    #threeSlot1 {
+        position: absolute !important;
+
+        width: 34vw !important;
+        height: 51vw !important;
+
+        max-width: 140px !important;
+        max-height: 210px !important;
+
+        top: 35px !important;
+        left: 50% !important;
+
+        transform: translateX(-50%) !important;
+    }
+
+    /* BOTTOM LEFT */
+
+    #threeSlot2 {
+        position: absolute !important;
+
+        width: 34vw !important;
+        height: 51vw !important;
+
+        max-width: 140px !important;
+        max-height: 210px !important;
+
+        bottom: 35px !important;
+        left: calc(50% - 150px) !important;
+
+        transform: none !important;
+    }
+
+    /* BOTTOM RIGHT */
+
+    #threeSlot3 {
+        position: absolute !important;
+
+        width: 34vw !important;
+        height: 51vw !important;
+
+        max-width: 140px !important;
+        max-height: 210px !important;
+
+        bottom: 35px !important;
+        left: calc(50% + 10px) !important;
+
+        transform: none !important;
+    }
+
+
+    /* =====================================
+       10-CARD CELTIC CROSS
+       LARGER VISUAL CARDS
+       ===================================== */
+
+    .celtic-cross-board.active {
+        position: relative !important;
+
+        /*
+           Smaller coordinate system means
+           LESS scaling on the phone.
+        */
+        width: 620px !important;
+        height: 620px !important;
+
+        flex-shrink: 0 !important;
+
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        transform:
+            scale(
+                min(
+                    calc((100vw - 10px) / 620),
+                    calc((100vh - 30px) / 620)
+                )
+            ) !important;
+
+        transform-origin: center center !important;
+    }
+
+    /* BIGGER 10-CARD SLOTS */
+
+    .celtic-cross-board .slot {
+        width: 150px !important;
+        height: 230px !important;
+
+        overflow: visible !important;
+    }
+
+    /* BIGGER POSITION LABELS */
+
+    .celtic-cross-board .slot-label {
+        width: 145% !important;
+
+        padding: 8px 7px !important;
+
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+
+        min-height: 52px !important;
+
+        top: auto !important;
+        bottom: 0 !important;
+
+        background: rgba(70, 45, 100, 0.95) !important;
+
+        color: white !important;
+
+        border-radius: 8px !important;
+
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        /*
+           Label sits over the bottom
+           of the card instead of below it.
+        */
+        z-index: 5 !important;
+    }
+
+
+    /* =====================================
+       CELTIC CROSS POSITIONS
+       ===================================== */
+
+    /* CENTER */
+
+    #slot1 {
+        left: 165px !important;
+        top: 220px !important;
+        z-index: 2 !important;
+    }
+
+    /* CROSSING CARD */
+
+    #slot2 {
+        left: 165px !important;
+        top: 220px !important;
+
+        transform: rotate(90deg) !important;
+
+        z-index: 3 !important;
+    }
+
+    /* ABOVE */
+
+    #slot3 {
+        left: 165px !important;
+        top: 10px !important;
+    }
+
+    /* BELOW */
+
+    #slot4 {
+        left: 165px !important;
+        top: 430px !important;
+    }
+
+    /* LEFT */
+
+    #slot5 {
+        left: -5px !important;
+        top: 220px !important;
+    }
+
+    /* RIGHT */
+
+    #slot6 {
+        left: 335px !important;
+        top: 220px !important;
+    }
+
+    /* RIGHT COLUMN */
+
+    #slot7 {
+        left: 470px !important;
+        top: 390px !important;
+    }
+
+    #slot8 {
+        left: 470px !important;
+        top: 260px !important;
+    }
+
+    #slot9 {
+        left: 470px !important;
+        top: 130px !important;
+    }
+
+    #slot10 {
+        left: 470px !important;
+        top: 0 !important;
+    }
+
+}
