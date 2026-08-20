@@ -1200,6 +1200,12 @@ min-height: 100vh;
     bottom: 40px;
     left: calc(50% + 50px);
 }
+/* Keep 3-card spread cards large on phones */
+.three-card-board .slot {
+    width: 180px !important;
+    height: 270px !important;
+}
+
 /* =========================================
    SUBTLE NIGHT SKY EFFECT
    ========================================= */
