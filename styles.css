@@ -3133,3 +3133,36 @@ h1 {
         z-index: 1 !important;
     }
 }
+/* =========================================
+   FINAL PHONE CARD SIZES
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    /* 1-CARD */
+    .one-card-board .slot {
+        width: 220px !important;
+        height: 335px !important;
+    }
+
+    /* 3-CARD — KEEP TRIANGLE, MAKE CARDS LARGE */
+    .three-card-board .slot {
+        width: 190px !important;
+        height: 285px !important;
+    }
+
+    /* 10-CARD CELTIC CROSS */
+    .celtic-cross-board .slot {
+        width: 110px !important;
+        height: 168px !important;
+    }
+
+    /* Make Celtic Cross labels larger too */
+    .celtic-cross-board .slot-label {
+        width: 155% !important;
+        min-height: 52px !important;
+        font-size: 11px !important;
+        padding: 10px 8px !important;
+        line-height: 1.5 !important;
+    }
+}
