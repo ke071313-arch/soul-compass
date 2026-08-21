@@ -3704,7 +3704,7 @@ h1 {
     .celtic-cross-board.active {
         width: 900px !important;
         height: 1000px !important;
-        transform: scale(0.70) !important;
+        transform: scale(1.20) !important;
         transform-origin: center center !important;
     }
 
