@@ -3204,8 +3204,8 @@ h1 {
     }
 
     .celtic-cross-board.active .slot {
-        width: 110px !important;
-        height: 168px !important;
+        width: 150px !important;
+        height: 230px !important;
     }
 
 }
