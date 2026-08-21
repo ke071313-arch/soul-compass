@@ -3526,3 +3526,172 @@ h1 {
         line-height: 1.6 !important;
     }
 }
+/* =========================================================
+   SOUL COMPASS - FINAL 10 CARD PHONE SIZE FIX
+   PUT THIS AT THE VERY BOTTOM OF styles.css
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* Give the Celtic Cross a larger working area */
+    .celtic-cross-board.active {
+        width: 820px !important;
+        height: 1040px !important;
+
+        position: relative !important;
+        flex-shrink: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        /*
+           Scale the whole layout to fit the phone width,
+           but keep the cards proportionally larger.
+        */
+        transform: scale(
+            calc((100vw - 20px) / 820)
+        ) !important;
+
+        transform-origin: center center !important;
+
+        display: block !important;
+    }
+
+
+    /* =========================================
+       BIGGER 10-CARD CARDS
+       ========================================= */
+
+    .celtic-cross-board.active .slot {
+        width: 220px !important;
+        height: 330px !important;
+
+        overflow: visible !important;
+    }
+
+
+    /* =========================================
+       CENTER CROSS
+       ========================================= */
+
+    #slot1 {
+        left: 190px !important;
+        top: 330px !important;
+    }
+
+    #slot2 {
+        left: 190px !important;
+        top: 330px !important;
+
+        transform: rotate(90deg) !important;
+    }
+
+    #slot3 {
+        left: 190px !important;
+        top: 0 !important;
+    }
+
+    #slot4 {
+        left: 190px !important;
+        top: 660px !important;
+    }
+
+
+    /* =========================================
+       LEFT AND RIGHT OF CENTER
+       ========================================= */
+
+    #slot5 {
+        left: -60px !important;
+        top: 330px !important;
+    }
+
+    #slot6 {
+        left: 420px !important;
+        top: 330px !important;
+    }
+
+
+    /* =========================================
+       RIGHT-HAND STAFF
+       ========================================= */
+
+    #slot10 {
+        left: 600px !important;
+        top: 0 !important;
+    }
+
+    #slot9 {
+        left: 600px !important;
+        top: 260px !important;
+    }
+
+    #slot8 {
+        left: 600px !important;
+        top: 520px !important;
+    }
+
+    #slot7 {
+        left: 600px !important;
+        top: 780px !important;
+    }
+
+
+    /* =========================================
+       LARGER POSITION LABELS
+       ========================================= */
+
+    .celtic-cross-board.active .slot-label {
+        width: 145% !important;
+
+        position: absolute !important;
+
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        /*
+           Label sits over the bottom of the card,
+           just like we established earlier.
+        */
+        top: auto !important;
+        bottom: 0 !important;
+
+        padding: 12px 10px !important;
+
+        font-size: 13px !important;
+        line-height: 1.45 !important;
+
+        min-height: 65px !important;
+
+        background: rgba(70, 45, 100, 0.95) !important;
+
+        color: white !important;
+
+        border-radius: 8px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        text-align: center !important;
+
+        z-index: 20 !important;
+    }
+
+
+    /* =========================================
+       BIGGER CARD NUMBERS
+       ========================================= */
+
+    .celtic-cross-board.active .slot-num {
+        width: 38px !important;
+        height: 38px !important;
+
+        font-size: 16px !important;
+
+        top: 7px !important;
+        left: 7px !important;
+
+        z-index: 25 !important;
+    }
+}
