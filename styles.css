@@ -3695,3 +3695,29 @@ h1 {
         z-index: 25 !important;
     }
 }
+/* =========================================
+   SOUL COMPASS - FINAL CELTIC CROSS SIZE
+   ========================================= */
+
+@media screen and (max-width: 600px) {
+
+    .celtic-cross-board.active {
+        width: 900px !important;
+        height: 1000px !important;
+        transform: scale(0.50) !important;
+        transform-origin: center center !important;
+    }
+
+    .celtic-cross-board.active .slot {
+        width: 150px !important;
+        height: 230px !important;
+    }
+
+    .celtic-cross-board.active .slot-label {
+        width: 145% !important;
+        min-height: 55px !important;
+        font-size: 12px !important;
+        padding: 10px 8px !important;
+        line-height: 1.5 !important;
+    }
+}
