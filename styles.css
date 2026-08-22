@@ -3747,9 +3747,7 @@ h1 {
            Scale the complete Celtic Cross to fit
            the phone width while keeping the cards large.
         */
-        transform: scale(
-            calc((100vw - 20px) / 820)
-        ) !important;
+        transform: scale(0.65) !important;
 
         transform-origin: center center !important;
 
