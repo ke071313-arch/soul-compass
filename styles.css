@@ -3723,7 +3723,6 @@ h1 {
 }
 /* =========================================================
    SOUL COMPASS - FINAL CELTIC CROSS PHONE LAYOUT
-   LARGE, EASY-TO-READ CARDS
    ========================================================= */
 
 @media screen and (max-width: 600px) {
@@ -3743,11 +3742,7 @@ h1 {
 
         flex-shrink: 0 !important;
 
-        /*
-           Scale the complete Celtic Cross to fit
-           the phone width while keeping the cards large.
-        */
-        transform: scale(0.55) !important;
+        transform: scale(0.80) !important;
 
         transform-origin: center center !important;
 
@@ -3773,44 +3768,40 @@ h1 {
        CENTER CROSS
        ===================================================== */
 
-    /* Card 1 - Present Situation */
-    .celtic-cross-board.active #slot1 {
+    #slot1 {
         left: 190px !important;
         top: 330px !important;
-
         z-index: 2 !important;
     }
 
-    /* Card 2 - Crossing Card */
-    .celtic-cross-board.active #slot2 {
+    #slot2 {
         left: 190px !important;
         top: 330px !important;
-
         transform: rotate(90deg) !important;
-
         z-index: 3 !important;
     }
 
-    /* Card 3 - Above */
-    .celtic-cross-board.active #slot3 {
+    #slot3 {
         left: 190px !important;
         top: 0 !important;
     }
 
-    /* Card 4 - Below */
-    .celtic-cross-board.active #slot4 {
+    #slot4 {
         left: 190px !important;
         top: 660px !important;
     }
 
-    /* Card 5 - Left */
-    .celtic-cross-board.active #slot5 {
+
+    /* =====================================================
+       LEFT AND RIGHT
+       ===================================================== */
+
+    #slot5 {
         left: -60px !important;
         top: 330px !important;
     }
 
-    /* Card 6 - Right */
-    .celtic-cross-board.active #slot6 {
+    #slot6 {
         left: 420px !important;
         top: 330px !important;
     }
@@ -3820,26 +3811,22 @@ h1 {
        RIGHT-HAND STAFF
        ===================================================== */
 
-    /* Card 10 - Top */
-    .celtic-cross-board.active #slot10 {
+    #slot10 {
         left: 600px !important;
         top: 0 !important;
     }
 
-    /* Card 9 */
-    .celtic-cross-board.active #slot9 {
+    #slot9 {
         left: 600px !important;
         top: 260px !important;
     }
 
-    /* Card 8 */
-    .celtic-cross-board.active #slot8 {
+    #slot8 {
         left: 600px !important;
         top: 520px !important;
     }
 
-    /* Card 7 - Bottom */
-    .celtic-cross-board.active #slot7 {
+    #slot7 {
         left: 600px !important;
         top: 780px !important;
     }
@@ -3857,10 +3844,6 @@ h1 {
         left: 50% !important;
         transform: translateX(-50%) !important;
 
-        /*
-           Place the label over the bottom
-           of the card.
-        */
         top: auto !important;
         bottom: 0 !important;
 
