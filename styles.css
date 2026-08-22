@@ -3762,8 +3762,8 @@ h1 {
     .celtic-cross-board.active .slot {
         position: absolute !important;
 
-        width: 220px !important;
-        height: 330px !important;
+        width: 280px !important;
+        height: 420px !important;
 
         overflow: visible !important;
     }
